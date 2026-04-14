@@ -1,0 +1,98 @@
+.InputText {
+  width: 100%;
+  grid-column: span 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.InputText.Dos {
+  grid-column: span 2;
+}
+.InputText.Tres {
+  grid-column: span 3;
+}
+.InputText.Cuatro {
+  grid-column: span 4;
+}
+.InputText.Completo {
+  grid-column: 1 / -1;
+}
+.InputText__Contenido {
+  position: relative;
+  width: 100%;
+}
+.InputText__Contenido--Icono {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  color: var(--ColorPrincipal);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .InputText__Contenido--Icono.Ojo {
+  top: 0;
+  right: 0;
+  cursor: pointer;
+} */
+.InputText__Contenido--Input {
+  width: 100%;
+  height: 60px;
+  padding: 10px 40px 10px 50px;
+  border-radius: 50px;
+  border: 2px solid var(--ColorBlanco);
+  background-color: var(--ColorBlanco);
+  font-size: var(--TextoInput);
+  outline: none;
+  transition: border-color 0.3s;
+}
+/* .InputText__Contenido--Input.TextArea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+  height: 100px;
+  max-height: 250px;
+  padding: 10px;
+} */
+.InputText__Contenido--Label {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  font-size: var(--TextoInput);
+  color: var(--ColorPrincipalHover);
+  pointer-events: none;
+  transition: 0.3s ease all;
+  background-color: var(--ColorBlanco);
+  padding: 0 5px;
+}
+.InputText__Contenido--Input:focus,
+.InputText__Contenido--Input:not(:placeholder-shown) {
+  border-color: var(--ColorPrincipal);
+  color: var(--ColorPrincipal);
+  font-weight: var(--Bold);
+}
+.InputText__Contenido--Input.SinBorde:focus,
+.InputText__Contenido--Input.SinBorde:not(:placeholder-shown) {
+  border-color: transparent;
+}
+.InputText__Contenido--Input:focus + .InputText__Contenido--Label,
+.InputText__Contenido--Input:not(:placeholder-shown)
+  + .InputText__Contenido--Label {
+  top: 0;
+  left: 10px;
+  font-size: var(--TextoLabel);
+  background-color: var(--ColorPrincipal);
+  border: 2px solid var(--ColorPrincipal);
+  color: var(--ColorBlanco);
+}
+.InputText__MensajeDeError {
+  color: var(--ColorRojo);
+  font-size: var(--TextoLabel);
+  font-weight: var(--Bold);
+}

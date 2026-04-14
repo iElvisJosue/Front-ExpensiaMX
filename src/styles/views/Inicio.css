@@ -1,0 +1,10 @@
+.Inicio {
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.Inicio__Texto {
+  grid-column: 1 / -1;
+}

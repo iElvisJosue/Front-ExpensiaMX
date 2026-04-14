@@ -1,0 +1,87 @@
+/** Fuente **/
+@font-face {
+  font-family: "NotoSans";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+}
+/** Variables CSS **/
+:root {
+  /** Colores **/
+  --ColorPrincipal: #1fa578;
+  --ColorPrincipalHover: #178461;
+  --ColorSecundario: #a8e5d1;
+  --ColorRojo: #ca4f4f;
+  --ColorRojoHover: #a53f3f;
+  --ColorNaranja: #ff8c00;
+  --ColorNaranjaHover: #ff6f00;
+  --ColorBg: #e2e5ea;
+  --ColorNegro: #171616;
+  --ColorBlanco: #ffffff;
+  --ColorGrisClaro: #cccccc;
+  --ColorGrisOscuro: #888888;
+  --BgGradiante: linear-gradient(60deg, var(--ColorBg), var(--ColorSecundario));
+  /** Textos **/
+  --TextoTitulo: clamp(20px, 2.5vw, 25px);
+  --TextoAlerta: clamp(16px, 2.5vw, 18px);
+  --TextoInput: clamp(12px, 2.5vw, 16px);
+  --TextoLabel: clamp(10px, 2.5vw, 12px);
+  --Bold: 600;
+  /** Indexs **/
+  --Maximo: 9999;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: var(--ColorNegro);
+}
+body {
+  transition: 0.3s ease background-color;
+  background-color: var(--ColorBg);
+  /* background: var(--BgGradiante); */
+}
+body,
+input,
+select,
+button,
+textarea,
+a {
+  font-family: "NotoSans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+input {
+  /* accent-color: var(--MainYellow); */
+  outline: none;
+}
+input[type="file"] {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 5px; /* Ancho del scroll */
+}
+::-webkit-scrollbar-thumb {
+  /* Color del scroll thumb */
+  background-color: var(--ColorPrincipal);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--ColorBlanco); /* Color del track */
+}
+/* Para Chrome, Safari, Edge y otros navegadores basados en WebKit */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Para Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+/* Estilo general si necesitas personalizar más */
+input[type="number"] {
+  appearance: none;
+  outline: none;
+}

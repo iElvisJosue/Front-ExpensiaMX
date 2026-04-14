@@ -1,0 +1,66 @@
+.IniciarSesion {
+  position: relative;
+  min-height: 100dvh;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.IniciarSesion__Formulario {
+  position: relative;
+  padding: 20px;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.IniciarSesion__Formulario--Imagen {
+  background-color: var(--ColorPrincipal);
+  border-radius: 20px;
+  padding: 10px;
+  width: clamp(110px, 20vw, 130px);
+  height: clamp(110px, 20vw, 130px);
+}
+.IniciarSesion__Formulario--Titulo {
+  text-align: center;
+  font-size: var(--TextoTitulo);
+  color: var(--ColorPrincipal);
+}
+.IniciarSesion__Formulario--Boton {
+  width: 100%;
+  height: 56px;
+  border-radius: 50px;
+  background-color: var(--ColorPrincipal);
+  border: 2px solid var(--ColorPrincipal);
+  color: white;
+  font-size: var(--TextoInput);
+  font-weight: var(--Bold);
+  transition: 0.3s ease all;
+}
+.IniciarSesion__Formulario--Boton:hover {
+  cursor: pointer;
+  background-color: var(--ColorPrincipalHover);
+  border-color: var(--ColorPrincipalHover);
+  transform: translateY(-2px);
+}
+@media (width >= 1920px) {
+  .IniciarSesion {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (width <= 768px) {
+  .IniciarSesion {
+    padding: 0;
+  }
+  .IniciarSesion__Formulario {
+    border-radius: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+}
