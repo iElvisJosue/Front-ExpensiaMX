@@ -1,20 +1,27 @@
-/** Librerias **/
+/** Librerías **/
+import { sileo } from "sileo";
 import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
 /** Contextos **/
-import { useUsuariosContext } from "../../context/UsuariosContext";
+import { useSistema } from "@/context/SistemaContext";
+import { useUsuariosContext } from "@/context/UsuariosContext";
 /** Ayudas **/
-import {
-  AlertaDePregunta,
-  AlertaRealizandoPeticion,
-} from "../../helpers/TiposDeAlertas";
-import { TOKEN_DE_ACCESO_SISTEMA } from "../../helpers/MagicStrings";
+import { NotificacionesPersonalizadas } from "@/helpers/Notificaciones";
+import { ArrowRightIcon, ChecksIcon } from "@phosphor-icons/react";
+import { ROLES_USUARIO } from "@/helpers/MagicStrings";
 
 export default function useIniciarSesion() {
+  /** Navegación **/
+  const navigate = useNavigate();
+  /** Peticiones **/
   const { IniciarSesion } = useUsuariosContext();
-  const [verContrasena, establecerVerContrasena] = useState(false);
+  /** Desestructuramos las props **/
+  const {
+    PropsToken: { tieneToken },
+  } = useSistema();
   const {
     handleSubmit,
     register,
@@ -22,36 +29,64 @@ export default function useIniciarSesion() {
   } = useForm({
     criteriaMode: "all",
   });
+  /** Estados **/
+  const [verContrasena, establecerVerContrasena] = useState(false);
+  const [realizandoPeticion, establecerRealizandoPeticion] = useState(false);
 
+  /** Efecto para comprobar si ya hay una sesión iniciada **/
   useEffect(() => {
-    /** Mostramos una alerta de sesion activa solo
-     * si el usuario tiene una cookie de acceso **/
-    if (localStorage.getItem(TOKEN_DE_ACCESO_SISTEMA)) {
-      AlertaDePregunta({
-        Titulo: "¡Tienes una sesión activa!",
-        Mensaje: "¿Quieres ir al menú principal?",
-        Imagen: "images/SesionActiva.png",
-        TextoBotonCancelar: "No",
-        TextoBotonConfirmar: "Si, ir al menú principal",
-        FuncionParaRealizar: () => {
-          window.location.href = "/Inicio";
+    if (tieneToken) {
+      /** Obtenemos el slug **/
+      const Slug = localStorage.getItem("SLUG_COMPANIA");
+      const Destino = Slug ? `/${Slug}/inicio` : "/super-admin/inicio";
+      NotificacionesPersonalizadas({
+        Tipo: "Accion",
+        Icono: ArrowRightIcon,
+        Titulo: "¡Sesión activa!",
+        Mensaje: "Parece que ya tienes una sesión activa. ¿Deseas continuar?",
+        TextoBoton: "Continuar",
+        onBoton: () => {
+          navigate(Destino);
+          sileo.clear();
         },
       });
     }
-  }, []);
+  }, [tieneToken]); // eslint-disable-line
 
   const PeticionIniciarSesion = handleSubmit(async (data) => {
-    // MOSTRAMOS LA ALERTA DE REALIZANDO PETICIÓN
-    // LA ALERTA SE CERRARA AUTOMATICAMENTE AL TERMINAR LA PETICIÓN
-    AlertaRealizandoPeticion();
+    /** Si estamos realizando la petición, no hacemos nada **/
+    if (realizandoPeticion) return;
+    establecerRealizandoPeticion(true);
     const res = await IniciarSesion(data);
-    console.log(res);
+    establecerRealizandoPeticion(false);
     if (res.exito) {
-      setTimeout(() => {
-        window.location.href = "/Inicio";
-      }, 1000);
+      /** Creamos la cookie de sesion iniciada **/
+      Cookies.set("SESION_ACTIVA_WEB_EXPENSIAMX", "SI", { expires: 1 });
+      /** Mostramos una notificación de exito **/
+      NotificacionesPersonalizadas({
+        Tipo: "Exito",
+        Icono: ChecksIcon,
+        Titulo: "¡Sesión iniciada!",
+        Mensaje: "Has iniciado sesión con éxito. ¡Bienvenido! 🫡",
+      });
+      /** Redireccionamos a la pantalla de inicio **/
+      const { rol_usuario, url_compania } = res.data;
+      /** Guardamos el slug de la compania para usarlo en la navegación
+       * en caso de ser necesario (Sesión activa) **/
+      if (rol_usuario !== ROLES_USUARIO.SUPER_ADMIN) {
+        localStorage.setItem("SLUG_COMPANIA", url_compania);
+      }
+      ManejarRedireccionamiento({
+        Rol: rol_usuario,
+        Slug: url_compania,
+      });
     }
   });
+  const ManejarRedireccionamiento = ({ Rol, Slug }) => {
+    if (Rol === ROLES_USUARIO.SUPER_ADMIN)
+      return navigate("/super-admin/inicio");
+    navigate(`/${Slug}/inicio`);
+  };
   const ManejarMostrarContrasena = () => {
     establecerVerContrasena(!verContrasena);
     const InputContrasena = document.getElementById("ContrasenaUsuario");

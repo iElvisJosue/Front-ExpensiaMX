@@ -1,13 +1,11 @@
-/* PlantillaMain */
-.PlantillaMain {
+.PlantillaAdministrador {
   width: 100%;
   height: 100vh;
 
   display: grid;
   grid-template-columns: auto 1fr;
 }
-/* Contenido Principal */
-.PlantillaMain__Contenido {
+.PlantillaAdministrador__Contenido {
   width: 100%;
   overflow: auto;
 }

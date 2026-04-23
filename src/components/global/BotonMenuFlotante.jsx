@@ -1,9 +1,9 @@
 /** Iconos **/
 import { ListIcon } from "@phosphor-icons/react";
 /** Contextos **/
-import { useSistema } from "../../context/SistemaContext";
+import { useSistema } from "@/context/SistemaContext";
 /** Ayudas **/
-import { Normal } from "../../helpers/TamanoIcono";
+import { Normal } from "@/helpers/TamanoIcono";
 /** Estilos **/
 import "../../styles/components/global/BotonMenuFlotante.css";
 

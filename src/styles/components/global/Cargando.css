@@ -14,7 +14,7 @@
 }
 .Cargando h1 {
   font-size: var(--TextoLabel);
-  font-weight: bold;
+  font-weight: var(--Bold);
   color: var(--ColorPrincipal);
 }
 .Cargando__Rueda {

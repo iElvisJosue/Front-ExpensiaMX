@@ -1,7 +1,6 @@
 /** Librerias **/
 import axios from "./axios";
-/** Ayudas **/
-import { AgregarTokenPeticion } from "../helpers/AgregarTokenPeticion";
 
-export const SolicitudValidarToken = (data) =>
-  axios.post("/web/sistema/validar-token", data);
+export const SolicitudValidarToken = () =>
+  axios.get("/web/sistema/validar-token");
+export const SolicitudCerrarSesion = () => axios.post("/web/sistema/cerrar-sesion");

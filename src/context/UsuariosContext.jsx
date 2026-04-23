@@ -1,6 +1,6 @@
-/** Librerias **/
+/** Librerías **/
 import { createContext, useContext } from "react";
-/** Creamos el contexto **/
+/** Contexto **/
 export const UsuariosContext = createContext();
 
 export const useUsuariosContext = () => {

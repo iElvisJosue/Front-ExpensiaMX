@@ -1,7 +1,7 @@
 /** Fuente **/
 @font-face {
-  font-family: "NotoSans";
-  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter.ttf") format("truetype");
 }
 /** Variables CSS **/
 :root {
@@ -13,6 +13,8 @@
   --ColorRojoHover: #a53f3f;
   --ColorNaranja: #ff8c00;
   --ColorNaranjaHover: #ff6f00;
+  --ColorAzul: #3f66dd;
+  --ColorAzulHover: #5676df;
   --ColorBg: #e2e5ea;
   --ColorNegro: #171616;
   --ColorBlanco: #ffffff;
@@ -21,9 +23,11 @@
   --BgGradiante: linear-gradient(60deg, var(--ColorBg), var(--ColorSecundario));
   /** Textos **/
   --TextoTitulo: clamp(20px, 2.5vw, 25px);
+  --TextoSubtitulo: clamp(18px, 2.5vw, 20px);
   --TextoAlerta: clamp(16px, 2.5vw, 18px);
   --TextoInput: clamp(12px, 2.5vw, 16px);
   --TextoLabel: clamp(10px, 2.5vw, 12px);
+  --TextoPequeno: clamp(8px, 2.5vw, 10px);
   --Bold: 600;
   /** Indexs **/
   --Maximo: 9999;
@@ -48,7 +52,7 @@ select,
 button,
 textarea,
 a {
-  font-family: "NotoSans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }

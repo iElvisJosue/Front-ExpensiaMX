@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 /** Estilos **/
 import "./styles/index.css";
-import "./styles/global/SweetAlert.css";
+import "./styles/global/Sileo.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>

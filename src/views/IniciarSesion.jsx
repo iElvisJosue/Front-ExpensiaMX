@@ -1,10 +1,11 @@
 /** Iconos **/
-import { PasswordIcon, UserIcon } from "@phosphor-icons/react";
+import { EyeIcon, EyeSlashIcon, PasswordIcon, UserIcon } from "@phosphor-icons/react";
 /** Hooks **/
 import useIniciarSesion from "@/hooks/IniciarSesion/useIniciarSesion";
 /** Componentes **/
 import InputText from "@/components/global/InputText";
 /** Ayudas **/
+import { RUTAS_IMAGENES } from "@/helpers/Rutas";
 import { NOMBRE_SISTEMA } from "@/helpers/MagicStrings";
 import { MENSAJES_DE_VALIDACION } from "@/helpers/MensajesValidaciones";
 /** Estilos **/
@@ -27,7 +28,7 @@ export default function IniciarSesion() {
         onSubmit={PeticionIniciarSesion}
       >
         <img
-          src="images/Logo.png"
+          src={RUTAS_IMAGENES.Logo}
           alt="Logo Sistema"
           className="IniciarSesion__Formulario--Imagen"
         />
@@ -36,7 +37,7 @@ export default function IniciarSesion() {
         </h2>
         <InputText
           Label="Usuario"
-          Icono={UserIcon}
+          IconoIzquierda={UserIcon}
           NombreCampo="Usuario"
           register={register("Usuario", {
             required: MENSAJES_DE_VALIDACION.REQUERIDO,
@@ -49,8 +50,11 @@ export default function IniciarSesion() {
         />
         <InputText
           Label="Contraseña"
-          Icono={PasswordIcon}
+          IconoIzquierda={PasswordIcon}
+          IconoDerecha={verContrasena ? EyeSlashIcon : EyeIcon}
+          onDerecha={ManejarMostrarContrasena}
           NombreCampo="Contrasena"
+          TipoCampo={verContrasena ? "text" : "password"}
           register={register("Contrasena", {
             required: MENSAJES_DE_VALIDACION.REQUERIDO,
           })}

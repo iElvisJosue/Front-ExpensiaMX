@@ -10,22 +10,30 @@ import "../../styles/components/global/InputText.css";
 export default function InputText({
   Columnas = "",
   Label = "Label",
-  Icono = null,
+  IconoIzquierda = null,
+  /** Props para el campo de contrasena **/
+  IconoDerecha = null,
+  onDerecha = () => {},
   NombreCampo,
   TipoCampo = "text",
   register = {},
   errors = {},
 }) {
-  const IconoInput = Icono ? Icono : TextboxIcon; 
+  const IconoInputIzquierda = IconoIzquierda ? IconoIzquierda : TextboxIcon;
   /** Clase para el tamaño del grid (Uno-Dos-Tres...) **/
   const ClaseInput = Columnas ? `InputText ${Columnas}` : `InputText`;
 
   return (
     <div className={ClaseInput}>
       <div className="InputText__Contenido">
-        <span className="InputText__Contenido--Icono">
-          {<IconoInput {...Normal} />}
+        <span className="InputText__Contenido--Icono Izquierda">
+          {<IconoInputIzquierda {...Normal} />}
         </span>
+        {IconoDerecha && (
+          <span className="InputText__Contenido--Icono Derecha" onClick={onDerecha}>
+            {<IconoDerecha {...Normal} />}
+          </span>
+        )}
         <input
           id={NombreCampo}
           name={NombreCampo}

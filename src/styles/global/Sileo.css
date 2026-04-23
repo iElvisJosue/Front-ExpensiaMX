@@ -1,0 +1,52 @@
+:root {
+  /* State colors (oklch) */
+  --sileo-state-success: #ecfdf5;
+  --sileo-state-loading: oklch(0.556 0 0);
+  --sileo-state-error: #fef2f2;
+  --sileo-state-warning: #fffbeb;
+  --sileo-state-info: oklch(0.685 0.169 237.323);
+  --sileo-state-action: #eff6ff;
+
+  /* Dimensions */
+  --sileo-width: 350px;
+  --sileo-height: 40px;
+
+  /* Animation */
+  --sileo-duration: 600ms;
+}
+.TituloSileo.Verde {
+  color: #ECFDF5;
+}
+.TituloSileo.Azul {
+  color: #EFF6FF;
+}
+.TituloSileo.Naranja {
+  color: #FFFBEB;
+}
+.TituloSileo.Rojo {
+  color: #FEF2F2;
+}
+.IconoSileo.Verde{
+  color: #ECFDF5;
+  background-color: #387D39;
+}
+.IconoSileo.Azul{
+  color: #EFF6FF;
+  background-color: #3f66dd;
+}
+.IconoSileo.Naranja{
+  color: #FFFBEB;
+  background-color: #B45813;
+}
+.IconoSileo.Rojo{
+  color: #FEF2F2;
+  background-color: #BB3320;
+}
+.BotonSileo.Azul {
+  color: #EFF6FF;
+  background-color: #3f66dd;
+  transition: .3s ease all;
+}
+.BotonSileo.Azul:hover {
+  background-color: #5676df;
+}

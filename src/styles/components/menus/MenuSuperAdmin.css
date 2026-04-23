@@ -1,5 +1,4 @@
-/* Menu Principal */
-.MenuPrincipal {
+.MenuSuperAdmin {
   position: relative;
   width: 100px;
   overflow: auto;
@@ -15,19 +14,20 @@
   flex-direction: column;
   gap: 10px;
 }
-.MenuPrincipal.Completo {
+.MenuSuperAdmin.Completo {
   width: 300px;
-  padding: 30px;
+  padding: 10px;
+  /* padding: 30px; */
 }
-.MenuPrincipal__Visualizacion {
+.MenuSuperAdmin__Visualizacion {
   position: absolute;
   width: 40px;
   height: 25px;
   border-radius: 50px;
   top: 5px;
   right: calc(50% - 20px);
-  background-color: var(--ColorBlanco);
-  color: var(--ColorPrincipal);
+  background-color: transparent;
+  color: var(--ColorBlanco);
   border: none;
   transition: 0.3s ease all;
   cursor: pointer;
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
 }
-.MenuPrincipal__Logo {
+.MenuSuperAdmin__Logo {
   margin-top: 20px;
   display: flex;
   align-items: center;
@@ -44,22 +44,22 @@
 }
 /* Agregamos el gap cuando el menu esta completo, ya que
 al no estar completo, se quita para evitar que se vea desalineado */
-.MenuPrincipal.Completo .MenuPrincipal__Logo {
+.MenuSuperAdmin.Completo .MenuSuperAdmin__Logo {
   gap: 5px;
 }
-.MenuPrincipal__Logo--Imagen {
+.MenuSuperAdmin__Logo--Imagen {
   width: clamp(40px, 10vw, 50px);
   height: clamp(40px, 10vw, 50px);
 }
-.MenuPrincipal__Logo--Titulo {
+.MenuSuperAdmin__Logo--Titulo {
   font-size: 0;
   color: var(--ColorBlanco);
 }
-.MenuPrincipal.Completo .MenuPrincipal__Logo--Titulo {
-  font-size: 20px;
-  font-weight: bold;
+.MenuSuperAdmin.Completo .MenuSuperAdmin__Logo--Titulo {
+  font-size: var(--TextoSubtitulo);
+  font-weight: var(--Bold);
 }
-.MenuPrincipal__Opciones {
+.MenuSuperAdmin__Opciones {
   margin-top: 20px;
   list-style: none;
 
@@ -67,7 +67,7 @@ al no estar completo, se quita para evitar que se vea desalineado */
   flex-direction: column;
   gap: 10px;
 }
-.MenuPrincipal__Opciones--Opcion {
+.MenuSuperAdmin__Opciones--Opcion {
   height: 50px;
   padding: 5px 10px;
   /* border-radius: 10px; */
@@ -79,29 +79,29 @@ al no estar completo, se quita para evitar que se vea desalineado */
   align-items: center;
   justify-content: center;
 }
-.MenuPrincipal.Completo .MenuPrincipal__Opciones--Opcion {
+.MenuSuperAdmin.Completo .MenuSuperAdmin__Opciones--Opcion {
   /* Agregamos el gap cuando el menu esta completo, ya que
     al no estar completo, se quita para evitar que se vea desalineado. */
   gap: 10px;
   /* Alineamos el texto a la izquierda */
   justify-content: flex-start;
 }
-.MenuPrincipal__Opciones--Opcion:hover {
+.MenuSuperAdmin__Opciones--Opcion:hover {
   background-color: var(--ColorPrincipalHover);
   color: white;
   cursor: pointer;
 }
 /* Empiezan estilos para el enlace activo */
-.LinkActivo .MenuPrincipal__Opciones--Opcion {
+.LinkActivo .MenuSuperAdmin__Opciones--Opcion {
   cursor: default;
   background-color: var(--ColorPrincipalHover);
   color: white;
 }
-.LinkActivo .MenuPrincipal__Opciones--Opcion--Icono {
+.LinkActivo .MenuSuperAdmin__Opciones--Opcion--Icono {
   background-color: var(--ColorPrincipal);
 }
 /* Terminan estilos para el enlace activo */
-.MenuPrincipal__Opciones--Opcion--Icono {
+.MenuSuperAdmin__Opciones--Opcion--Icono {
   padding: 5px;
   /* border-radius: 12.5px; */
   border-radius: 50px;
@@ -111,16 +111,16 @@ al no estar completo, se quita para evitar que se vea desalineado */
   align-items: center;
   justify-content: center;
 }
-.MenuPrincipal__Opciones--Opcion:hover .MenuPrincipal__Opciones--Opcion--Icono {
+.MenuSuperAdmin__Opciones--Opcion:hover .MenuSuperAdmin__Opciones--Opcion--Icono {
   background-color: var(--ColorPrincipal);
 }
-.MenuPrincipal__Opciones--Opcion--Texto {
+.MenuSuperAdmin__Opciones--Opcion--Texto {
   font-size: 0;
 }
-.MenuPrincipal.Completo .MenuPrincipal__Opciones--Opcion--Texto {
+.MenuSuperAdmin.Completo .MenuSuperAdmin__Opciones--Opcion--Texto {
   font-size: clamp(14px, 1.5vw, 16px);
 }
-.MenuPrincipal__Footer {
+.MenuSuperAdmin__Footer {
   width: 100%;
   margin-top: auto;
 
@@ -128,7 +128,7 @@ al no estar completo, se quita para evitar que se vea desalineado */
   flex-direction: column;
   gap: 10px;
 }
-.MenuPrincipal__Footer--CerrarSesion {
+.MenuSuperAdmin__Footer--CerrarSesion {
   width: 100%;
   height: 50px;
   background-color: white;
@@ -145,24 +145,24 @@ al no estar completo, se quita para evitar que se vea desalineado */
   justify-content: center;
   gap: 5px;
 }
-.MenuPrincipal.Completo .MenuPrincipal__Footer--CerrarSesion {
+.MenuSuperAdmin.Completo .MenuSuperAdmin__Footer--CerrarSesion {
   font-size: var(--TextoLabel);
 }
-.MenuPrincipal__Footer--CerrarSesion:hover {
+.MenuSuperAdmin__Footer--CerrarSesion:hover {
   background-color: var(--ColorRojoHover);
   color: white;
 }
 @media (width < 768px) {
-  .MenuPrincipal {
+  .MenuSuperAdmin {
     width: 0;
     padding: 0;
     transition: none;
   }
-  .MenuPrincipal.Completo {
+  .MenuSuperAdmin.Completo {
     position: fixed;
     width: 100%;
     height: 100vh;
-    padding: 30px;
+    /* padding: 30px; */
     z-index: var(--Maximo);
   }
 }
