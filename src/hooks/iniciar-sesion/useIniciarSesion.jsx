@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ErrorMessage } from "@hookform/error-message";
 /** Contextos **/
 import { useSistema } from "@/context/SistemaContext";
 import { useUsuariosContext } from "@/context/UsuariosContext";
@@ -17,7 +16,7 @@ export default function useIniciarSesion() {
   /** Navegación **/
   const navigate = useNavigate();
   /** Peticiones **/
-  const { IniciarSesion } = useUsuariosContext();
+  const { ApiIniciarSesion } = useUsuariosContext();
   /** Desestructuramos las props **/
   const {
     PropsToken: { tieneToken },
@@ -57,7 +56,7 @@ export default function useIniciarSesion() {
     /** Si estamos realizando la petición, no hacemos nada **/
     if (realizandoPeticion) return;
     establecerRealizandoPeticion(true);
-    const res = await IniciarSesion(data);
+    const res = await ApiIniciarSesion(data);
     establecerRealizandoPeticion(false);
     if (res.exito) {
       /** Creamos la cookie de sesion iniciada **/
@@ -92,28 +91,11 @@ export default function useIniciarSesion() {
     const InputContrasena = document.getElementById("ContrasenaUsuario");
     InputContrasena.type = verContrasena ? "text" : "password";
   };
-  const CampoRequerido = (NombreCampo) => {
-    return (
-      <ErrorMessage
-        errors={errors}
-        name={NombreCampo}
-        render={({ messages }) =>
-          messages &&
-          Object.entries(messages).map(([type, message]) => (
-            <small key={type} className="CampoRequerido">
-              {message}
-            </small>
-          ))
-        }
-      />
-    );
-  };
 
   return {
     errors,
     register,
     verContrasena,
-    CampoRequerido,
     PeticionIniciarSesion,
     ManejarMostrarContrasena,
   };

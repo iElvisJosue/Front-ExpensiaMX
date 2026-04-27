@@ -1,0 +1,13 @@
+.InputSelect {
+  width: 100%;
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.InputSelect__Titulo {
+  font-size: var(--Texto14);
+  font-weight: var(--Bold);
+  color: var(--ColorNegro);
+}

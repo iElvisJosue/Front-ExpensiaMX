@@ -1,14 +1,16 @@
 .MenuSuperAdmin {
   position: relative;
   width: 100px;
-  overflow: auto;
   padding: 30px 25px;
-  max-height: 100%;
   transition: 0.3s ease all;
   background-color: var(--ColorPrincipal);
+  border-radius: 20px;
+
+  overflow: auto;
   /* Quitamos el scroll */
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition: 0.3s ease all;
 
   display: flex;
   flex-direction: column;
@@ -111,7 +113,8 @@ al no estar completo, se quita para evitar que se vea desalineado */
   align-items: center;
   justify-content: center;
 }
-.MenuSuperAdmin__Opciones--Opcion:hover .MenuSuperAdmin__Opciones--Opcion--Icono {
+.MenuSuperAdmin__Opciones--Opcion:hover
+  .MenuSuperAdmin__Opciones--Opcion--Icono {
   background-color: var(--ColorPrincipal);
 }
 .MenuSuperAdmin__Opciones--Opcion--Texto {
@@ -146,13 +149,13 @@ al no estar completo, se quita para evitar que se vea desalineado */
   gap: 5px;
 }
 .MenuSuperAdmin.Completo .MenuSuperAdmin__Footer--CerrarSesion {
-  font-size: var(--TextoLabel);
+  font-size: var(--Texto14);
 }
 .MenuSuperAdmin__Footer--CerrarSesion:hover {
   background-color: var(--ColorRojoHover);
   color: white;
 }
-@media (width < 768px) {
+@media (width <= 768px) {
   .MenuSuperAdmin {
     width: 0;
     padding: 0;
@@ -160,8 +163,9 @@ al no estar completo, se quita para evitar que se vea desalineado */
   }
   .MenuSuperAdmin.Completo {
     position: fixed;
+    inset: 0;
     width: 100%;
-    height: 100vh;
+    border-radius: 0;
     /* padding: 30px; */
     z-index: var(--Maximo);
   }

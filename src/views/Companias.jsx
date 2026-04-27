@@ -1,3 +1,14 @@
+/** Hooks **/
+import useCompanias from "@/hooks/companias/useCompanias";
+
 export default function Companias() {
-  return <p>Compañias</p>;
+  const {
+    PropsVista: { OpcionesSubMenu, ComponenteRenderizar },
+  } = useCompanias();
+
+  return (
+    <div className="Companias">
+      <ComponenteRenderizar />
+    </div>
+  );
 }

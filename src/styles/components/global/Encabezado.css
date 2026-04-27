@@ -1,0 +1,52 @@
+.Encabezado {
+  height: 60px;
+  border-radius: 15px;
+  padding: 5px 10px;
+  background-color: var(--ColorBlanco);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Encabezado__Seccion {
+  font-size: var(--Texto16);
+  color: var(--ColorPrincipal);
+  font-weight: var(--Bold);
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.Encabezado__Usuario {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--ColorPrincipal);
+
+  display: grid;
+  place-items: center;
+}
+.Encabezado__Usuario img {
+  width: 90%;
+  height: 90%;
+}
+.Encabezado__Usuario--Informacion {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.Encabezado__Usuario--Informacion p {
+  font-size: var(--Texto12);
+  color: var(--ColorPrincipal);
+  font-weight: var(--Bold);
+}
+.Encabezado__Usuario--Informacion small {
+  font-size: var(--Texto10);
+  color: var(--ColorGrisOscuro);
+}
+@media (width <= 768px) {
+.Encabezado__Usuario {
+  width: 40px;
+  height: 40px;
+}
+}

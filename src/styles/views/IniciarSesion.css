@@ -37,7 +37,7 @@
   background-color: var(--ColorPrincipal);
   border: 2px solid var(--ColorPrincipal);
   color: white;
-  font-size: var(--TextoInput);
+  font-size: var(--Texto16);
   font-weight: var(--Bold);
   transition: 0.3s ease all;
 }
@@ -61,6 +61,6 @@
   .IniciarSesion__Formulario {
     border-radius: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 }

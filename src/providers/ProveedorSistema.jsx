@@ -21,7 +21,7 @@ export const ProveedorSistema = ({ children }) => {
     useState(0);
   /** Lo ponemos aqui para que no se pierda el
    * tamaño del menú al cambiar de ruta **/
-  const [verMenuCompleto, establecerVerMenuCompleto] = useState(true);
+  const [verMenuCompleto, establecerVerMenuCompleto] = useState(false);
   /** Controlamos si la versión del sistema web es la más reciente
    * En caso de ser necesario, mostramos el modal **/
   const [versionSistemaWeb, establecerVersionSistemaWeb] = useState(null);

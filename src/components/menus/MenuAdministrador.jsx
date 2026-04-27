@@ -18,10 +18,10 @@ import {
 /** Contextos **/
 import { useSistema } from "@/context/SistemaContext";
 /** Hooks **/
-import useCerrarSesion from "@/hooks/Menu/useCerrarSesion";
+import useCerrarSesion from "@/hooks/menu/useCerrarSesion";
 /** Ayudas **/
-import { RUTAS_IMAGENES } from "@/helpers/Rutas";
 import { NOMBRE_SISTEMA } from "@/helpers/MagicStrings";
+import { RUTAS_IMAGENES } from "@/helpers/RutasImagenes";
 import { MuyChico, Normal } from "@/helpers/TamanoIcono";
 /** Estilos **/
 import "../../styles/components/menus/MenuAdministrador.css";

@@ -5,9 +5,9 @@ import { TextboxIcon } from "@phosphor-icons/react";
 /** Ayudas **/
 import { Normal } from "@/helpers/TamanoIcono";
 /** Estilos **/
-import "../../styles/components/global/InputText.css";
+import "../../styles/components/inputs/InputTextLogin.css";
 
-export default function InputText({
+export default function InputTextLogin({
   Columnas = "",
   Label = "Label",
   IconoIzquierda = null,
@@ -19,18 +19,18 @@ export default function InputText({
   register = {},
   errors = {},
 }) {
-  const IconoInputIzquierda = IconoIzquierda ? IconoIzquierda : TextboxIcon;
+  const IconoInputIzquierda = IconoIzquierda ?? TextboxIcon;
   /** Clase para el tamaño del grid (Uno-Dos-Tres...) **/
-  const ClaseInput = Columnas ? `InputText ${Columnas}` : `InputText`;
+  const ClaseInput = Columnas ? `InputTextLogin ${Columnas}` : `InputTextLogin`;
 
   return (
     <div className={ClaseInput}>
-      <div className="InputText__Contenido">
-        <span className="InputText__Contenido--Icono Izquierda">
+      <div className="InputTextLogin__Contenido">
+        <span className="InputTextLogin__Contenido--Icono Izquierda">
           {<IconoInputIzquierda {...Normal} />}
         </span>
         {IconoDerecha && (
-          <span className="InputText__Contenido--Icono Derecha" onClick={onDerecha}>
+          <span className="InputTextLogin__Contenido--Icono Derecha" onClick={onDerecha}>
             {<IconoDerecha {...Normal} />}
           </span>
         )}
@@ -39,10 +39,10 @@ export default function InputText({
           name={NombreCampo}
           type={TipoCampo}
           placeholder=" "
-          className="InputText__Contenido--Input"
+          className="InputTextLogin__Contenido--Input"
           {...register}
         />
-        <label htmlFor="CorreoUsuario" className="InputText__Contenido--Label">
+        <label htmlFor="CorreoUsuario" className="InputTextLogin__Contenido--Label">
           {Label}
         </label>
       </div>
@@ -52,7 +52,7 @@ export default function InputText({
         render={({ messages }) =>
           messages &&
           Object.entries(messages).map(([type, message]) => (
-            <small key={type} className="InputText__MensajeDeError">
+            <small key={type} className="InputTextLogin__MensajeDeError">
               {message}
             </small>
           ))

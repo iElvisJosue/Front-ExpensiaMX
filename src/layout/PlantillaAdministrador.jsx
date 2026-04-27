@@ -18,7 +18,7 @@ export default function PlantillaAdministrador({ children }) {
       {verModalNuevaVersion && (
         <ModalActualizacion Version={versionSistemaWeb} />
       )}
-      <BotonMenuFlotante />
+      {/* <BotonMenuFlotante /> */}
       <MenuAdministrador />
       <section className="PlantillaAdministrador__Contenido">{children}</section>
     </main>

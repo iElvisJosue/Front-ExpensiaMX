@@ -18,9 +18,9 @@ export default function PlantillaSuperAdmin({ children }) {
       {verModalNuevaVersion && (
         <ModalActualizacion Version={versionSistemaWeb} />
       )}
-      <BotonMenuFlotante />
+      {/* <BotonMenuFlotante /> */}
       <MenuSuperAdmin />
-      <section className="PlantillaSuperAdmin__Contenido">{children}</section>
+      {children}
     </main>
   );
 }

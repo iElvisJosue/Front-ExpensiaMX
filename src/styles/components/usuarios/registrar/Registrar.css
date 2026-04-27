@@ -1,0 +1,36 @@
+.RegistrarUsuario {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+.RegistrarUsuario__Titulo {
+  grid-column: 1 / -1;
+  width: 100%;
+  font-size: var(--Texto18);
+  font-weight: var(--Bold);
+  color: var(--ColorPrincipal);
+  text-transform: uppercase;
+  text-align: center;
+}
+.RegistrarUsuario__Boton {
+  grid-column: 1 / -1;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  font-size: var(--Texto14);
+  color: var(--ColorBlanco);
+  font-weight: var(--Bold);
+  text-transform: uppercase;
+  background-color: var(--ColorPrincipal);
+  cursor: pointer;
+  transition: var(--Transicion);
+}
+.RegistrarUsuario__Boton:hover {
+  background-color: var(--ColorPrincipalHover);
+  transform: translateY(-2px);
+}
+@media (width <= 1000px) {
+  .RegistrarUsuario {
+    width: 100%;
+  }
+}

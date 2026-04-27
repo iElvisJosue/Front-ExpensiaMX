@@ -1,11 +1,16 @@
 /** Iconos **/
-import { EyeIcon, EyeSlashIcon, PasswordIcon, UserIcon } from "@phosphor-icons/react";
+import {
+  EyeIcon,
+  EyeSlashIcon,
+  PasswordIcon,
+  UserIcon,
+} from "@phosphor-icons/react";
 /** Hooks **/
-import useIniciarSesion from "@/hooks/IniciarSesion/useIniciarSesion";
+import useIniciarSesion from "@/hooks/iniciar-sesion/useIniciarSesion";
 /** Componentes **/
-import InputText from "@/components/global/InputText";
+import InputTextLogin from "@/components/inputs/InputTextLogin";
 /** Ayudas **/
-import { RUTAS_IMAGENES } from "@/helpers/Rutas";
+import { RUTAS_IMAGENES } from "@/helpers/RutasImagenes";
 import { NOMBRE_SISTEMA } from "@/helpers/MagicStrings";
 import { MENSAJES_DE_VALIDACION } from "@/helpers/MensajesValidaciones";
 /** Estilos **/
@@ -16,7 +21,6 @@ export default function IniciarSesion() {
     errors,
     register,
     verContrasena,
-    CampoRequerido,
     PeticionIniciarSesion,
     ManejarMostrarContrasena,
   } = useIniciarSesion();
@@ -35,7 +39,7 @@ export default function IniciarSesion() {
         <h2 className="IniciarSesion__Formulario--Titulo">
           ¡Bienvenido al sistema {NOMBRE_SISTEMA}!
         </h2>
-        <InputText
+        <InputTextLogin
           Label="Usuario"
           IconoIzquierda={UserIcon}
           NombreCampo="Usuario"
@@ -48,7 +52,7 @@ export default function IniciarSesion() {
           })}
           errors={errors}
         />
-        <InputText
+        <InputTextLogin
           Label="Contraseña"
           IconoIzquierda={PasswordIcon}
           IconoDerecha={verContrasena ? EyeSlashIcon : EyeIcon}

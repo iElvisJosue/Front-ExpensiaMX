@@ -1,0 +1,71 @@
+.InputText {
+  grid-column: span 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.InputText.Dos {
+  grid-column: span 2;
+}
+.InputText.Tres {
+  grid-column: span 3;
+}
+.InputText.Cuatro {
+  grid-column: span 4;
+}
+.InputText.Completo {
+  grid-column: 1 / -1;
+}
+.InputText__Titulo {
+  font-size: var(--Texto14);
+  font-weight: var(--Bold);
+  color: var(--ColorNegro);
+}
+.InputText__Input {
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--ColorGrisClaro);
+  border: 1px solid transparent;
+  transition: var(--Transicion);
+
+  display: flex;
+}
+.InputText__Input:focus-within {
+  border-color: var(--ColorPrincipal);
+}
+.InputText__Input:focus-within .InputText__Input--Icono {
+  color: var(--ColorPrincipal);
+}
+.InputText__Input:focus-within .InputText__Input--Text {
+  color: var(--ColorPrincipal);
+  font-weight: var(--Bold);
+}
+.InputText__Input--Icono {
+  width: 50px;
+  height: 100%;
+  color: var(--ColorGrisOscuro);
+  transition: var(--Transicion);
+
+  display: grid;
+  place-items: center;
+}
+.InputText__Input--Text {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  line-height: 0;
+  padding-right: 10px;
+
+  font-size: var(--Texto14);
+  color: var(--ColorGrisOscuro);
+}
+.InputText__Input--Text::placeholder {
+  font-weight: normal;
+  color: var(--ColorGrisOscuro);
+}
+.InputText__Validacion {
+  color: var(--ColorRojo);
+  font-size: var(--Texto10);
+  font-weight: var(--Bold);
+}

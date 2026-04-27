@@ -1,5 +1,5 @@
 /** Ayudas **/
-import { RUTAS_IMAGENES } from "@/helpers/Rutas";
+import { RUTAS_IMAGENES } from "@/helpers/RutasImagenes";
 /** Estilos **/
 import "../../styles/components/modals/ModalActualizacion.css";
 

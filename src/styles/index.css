@@ -1,7 +1,11 @@
 /** Fuente **/
-@font-face {
+/* @font-face {
   font-family: "Inter";
   src: url("@/assets/fonts/Inter.ttf") format("truetype");
+} */
+@font-face {
+  font-family: "Poppins";
+  src: url("@/assets/fonts/Poppins.ttf") format("truetype");
 }
 /** Variables CSS **/
 :root {
@@ -13,24 +17,31 @@
   --ColorRojoHover: #a53f3f;
   --ColorNaranja: #ff8c00;
   --ColorNaranjaHover: #ff6f00;
+  --ColorVerde: #2e9e5b;
+  --ColorVerdeHover: #237a47;
   --ColorAzul: #3f66dd;
   --ColorAzulHover: #5676df;
   --ColorBg: #e2e5ea;
   --ColorNegro: #171616;
+  --ColorNegroHover: #2e2d2d;
   --ColorBlanco: #ffffff;
-  --ColorGrisClaro: #cccccc;
-  --ColorGrisOscuro: #888888;
+  --ColorGrisClaro: #e9e9e9;
+  --ColorGrisOscuro: #6b6b6b;
   --BgGradiante: linear-gradient(60deg, var(--ColorBg), var(--ColorSecundario));
   /** Textos **/
   --TextoTitulo: clamp(20px, 2.5vw, 25px);
   --TextoSubtitulo: clamp(18px, 2.5vw, 20px);
-  --TextoAlerta: clamp(16px, 2.5vw, 18px);
-  --TextoInput: clamp(12px, 2.5vw, 16px);
-  --TextoLabel: clamp(10px, 2.5vw, 12px);
-  --TextoPequeno: clamp(8px, 2.5vw, 10px);
+  --Texto18: clamp(16px, 2.5vw, 18px);
+  --Texto16: clamp(12px, 2.5vw, 16px);
+  --Texto14: clamp(12px, 2.5vw, 14px);
+  --Texto12: clamp(10px, 2.5vw, 12px);
+  --Texto10: clamp(8px, 2.5vw, 10px);
   --Bold: 600;
   /** Indexs **/
-  --Maximo: 9999;
+  --Modal: 10;
+  --Maximo: 9;
+  /** Transiciones **/
+  --Transicion: 0.3s ease all;
 }
 * {
   margin: 0;
@@ -52,9 +63,12 @@ select,
 button,
 textarea,
 a {
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+li {
+  list-style: none;
 }
 input {
   /* accent-color: var(--MainYellow); */

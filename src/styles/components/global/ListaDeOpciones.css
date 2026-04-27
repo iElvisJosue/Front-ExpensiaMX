@@ -1,0 +1,125 @@
+.ListaDeOpciones {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.ListaDeOpciones__Buscador {
+  width: 350px;
+  background: var(--ColorBlanco);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: var(--Transicion);
+
+  display: flex;
+  align-items: center;
+}
+.ListaDeOpciones__Buscador--Icono {
+  width: 50px;
+  height: 100%;
+  color: var(--ColorGrisOscuro);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ListaDeOpciones__Buscador--Linea {
+  margin-right: 8px;
+  width: 2px;
+  height: 30%;
+  border-radius: 10px;
+  background-color: var(--ColorGrisClaro);
+}
+.ListaDeOpciones__Buscador--Input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  padding-right: 10px;
+  border: none;
+  font-weight: var(--Bold);
+  font-size: var(--Texto14);
+  color: var(--ColorGrisOscuro);
+}
+.ListaDeOpciones__Buscador--Input::placeholder {
+  font-weight: normal;
+  color: var(--ColorGrisOscuro);
+}
+.ListaDeOpciones__Botones{
+  display: flex;
+  gap: 5px;
+}
+.ListaDeOpciones__Botones--Boton {
+  /* width: 40px; */
+  width: fit-content;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 10px;
+  /* font-size: 0; */
+  border: 2px solid var(--ColorPrincipal);
+  background-color: var(--ColorPrincipal);
+  font-size: var(--Texto14);
+  color: var(--ColorBlanco);
+
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--Transicion);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.ListaDeOpciones__Botones--Boton:hover {
+  /* width: fit-content;
+  padding: 0 5px;
+  font-size: var(--Texto12); */
+
+  border-color: var(--ColorPrincipalHover);
+  background-color: var(--ColorPrincipalHover);
+
+  /* gap: 5px; */
+}
+.ListaDeOpciones__Botones--Boton.Verde {
+  border: 2px solid var(--ColorVerde);
+  background-color: var(--ColorVerde);
+}
+.ListaDeOpciones__Botones--Boton.Verde:hover {
+  border-color: var(--ColorVerdeHover);
+  background-color: var(--ColorVerdeHover);
+}
+.ListaDeOpciones__Botones--Boton.Rojo {
+  border: 2px solid var(--ColorRojo);
+  background-color: var(--ColorRojo);
+}
+.ListaDeOpciones__Botones--Boton.Rojo:hover {
+  border-color: var(--ColorRojoHover);
+  background-color: var(--ColorRojoHover);
+}
+.ListaDeOpciones__Botones--Boton.Naranja {
+  border: 2px solid var(--ColorNaranja);
+  background-color: var(--ColorNaranja);
+}
+.ListaDeOpciones__Botones--Boton.Naranja:hover {
+  border-color: var(--ColorNaranjaHover);
+  background-color: var(--ColorNaranjaHover);
+}
+.ListaDeOpciones__Botones--Boton.Azul {
+  border: 2px solid var(--ColorAzul);
+  background-color: var(--ColorAzul);
+}
+.ListaDeOpciones__Botones--Boton.Azul:hover {
+  border-color: var(--ColorAzulHover);
+  background-color: var(--ColorAzulHover);
+}
+.ListaDeOpciones__Botones--Boton.Gris {
+  border: 2px solid var(--ColorGrisOscuro);
+  background-color: var(--ColorGrisOscuro);
+}
+.ListaDeOpciones__Botones--Boton.Gris:hover {
+  border-color: var(--ColorNegroHover);
+  background-color: var(--ColorNegroHover);
+}
+@media (width <= 650px) {
+  .ListaDeOpciones__Buscador {
+    width: 100%;
+  }
+}

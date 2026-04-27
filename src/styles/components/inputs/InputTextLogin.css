@@ -1,4 +1,4 @@
-.InputText {
+.InputTextLogin {
   width: 100%;
   grid-column: span 1;
 
@@ -8,23 +8,23 @@
   justify-content: center;
   gap: 5px;
 }
-.InputText.Dos {
+.InputTextLogin.Dos {
   grid-column: span 2;
 }
-.InputText.Tres {
+.InputTextLogin.Tres {
   grid-column: span 3;
 }
-.InputText.Cuatro {
+.InputTextLogin.Cuatro {
   grid-column: span 4;
 }
-.InputText.Completo {
+.InputTextLogin.Completo {
   grid-column: 1 / -1;
 }
-.InputText__Contenido {
+.InputTextLogin__Contenido {
   position: relative;
   width: 100%;
 }
-.InputText__Contenido--Icono {
+.InputTextLogin__Contenido--Icono {
   position: absolute;
   height: 100%;
   width: 50px;
@@ -34,23 +34,23 @@
   align-items: center;
   justify-content: center;
 }
-.InputText__Contenido--Icono.Derecha {
+.InputTextLogin__Contenido--Icono.Derecha {
   top: 0;
   right: 0;
   cursor: pointer;
 }
-.InputText__Contenido--Input {
+.InputTextLogin__Contenido--Input {
   width: 100%;
   height: 60px;
   padding: 10px 40px 10px 50px;
   border-radius: 50px;
   border: 2px solid var(--ColorBlanco);
   background-color: var(--ColorBlanco);
-  font-size: var(--TextoInput);
+  font-size: var(--Texto16);
   outline: none;
   transition: border-color 0.3s;
 }
-/* .InputText__Contenido--Input.TextArea {
+/* .InputTextLogin__Contenido--Input.TextArea {
   width: 100%;
   resize: vertical;
   min-height: 100px;
@@ -58,43 +58,43 @@
   max-height: 250px;
   padding: 10px;
 } */
-.InputText__Contenido--Label {
+.InputTextLogin__Contenido--Label {
   position: absolute;
   top: 50%;
   left: 40px;
   transform: translateY(-50%);
   border-radius: 5px;
-  font-size: var(--TextoInput);
+  font-size: var(--Texto16);
   color: var(--ColorPrincipalHover);
   pointer-events: none;
   transition: 0.3s ease all;
   background-color: var(--ColorBlanco);
   padding: 0 5px;
 }
-.InputText__Contenido--Input:focus,
-.InputText__Contenido--Input:not(:placeholder-shown) {
+.InputTextLogin__Contenido--Input:focus,
+.InputTextLogin__Contenido--Input:not(:placeholder-shown) {
   border-color: var(--ColorPrincipal);
   color: var(--ColorPrincipal);
   font-weight: var(--Bold);
 }
-.InputText__Contenido--Input.SinBorde:focus,
-.InputText__Contenido--Input.SinBorde:not(:placeholder-shown) {
+.InputTextLogin__Contenido--Input.SinBorde:focus,
+.InputTextLogin__Contenido--Input.SinBorde:not(:placeholder-shown) {
   border-color: transparent;
 }
-.InputText__Contenido--Input:focus + .InputText__Contenido--Label,
-.InputText__Contenido--Input:not(:placeholder-shown)
-  + .InputText__Contenido--Label {
+.InputTextLogin__Contenido--Input:focus + .InputTextLogin__Contenido--Label,
+.InputTextLogin__Contenido--Input:not(:placeholder-shown)
+  + .InputTextLogin__Contenido--Label {
   top: 0;
   left: 10px;
-  font-size: var(--TextoLabel);
+  font-size: var(--Texto12);
   background-color: var(--ColorPrincipal);
   border: 2px solid var(--ColorPrincipal);
   color: var(--ColorBlanco);
 }
-.InputText__MensajeDeError {
+.InputTextLogin__MensajeDeError {
   margin: 10px auto 0 10px;
 
   color: var(--ColorRojo);
-  font-size: var(--TextoPequeno);
+  font-size: var(--Texto10);
   font-weight: var(--Bold);
 }
