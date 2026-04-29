@@ -6,8 +6,8 @@
   background-color: var(--ColorPrincipal);
   border-radius: 20px;
 
-  overflow: auto;
   /* Quitamos el scroll */
+  overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
   transition: 0.3s ease all;

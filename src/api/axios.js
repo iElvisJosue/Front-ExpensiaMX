@@ -6,6 +6,9 @@ const instance = axios.create({
   // baseURL: "/api",
   baseURL: "http://localhost:4000/api",
   withCredentials: true,
+  headers: {
+    "x-client": "web",
+  }
 });
 
 export default instance;

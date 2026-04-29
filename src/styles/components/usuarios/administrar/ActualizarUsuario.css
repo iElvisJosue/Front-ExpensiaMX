@@ -1,9 +1,9 @@
-.RegistrarUsuario {
+.ActualizarUsuario {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
-.RegistrarUsuario__Titulo {
+.ActualizarUsuario__Titulo {
   grid-column: 1 / -1;
   width: 100%;
   font-size: var(--Texto18);
@@ -12,7 +12,7 @@
   text-transform: uppercase;
   text-align: center;
 }
-.RegistrarUsuario__Boton {
+.ActualizarUsuario__Boton {
   grid-column: 1 / -1;
   height: 60px;
   border-radius: 50px;
@@ -25,12 +25,12 @@
   cursor: pointer;
   transition: var(--Transicion);
 }
-.RegistrarUsuario__Boton:hover {
+.ActualizarUsuario__Boton:hover {
   background-color: var(--ColorPrincipalHover);
   transform: translateY(-2px);
 }
 @media (width <= 1000px) {
-  .RegistrarUsuario {
+  .ActualizarUsuario {
     width: 100%;
   }
 }

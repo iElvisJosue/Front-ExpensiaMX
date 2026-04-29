@@ -1,5 +1,5 @@
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 /** Componentes **/
 import MenuSuperAdmin from "@/components/menus/MenuSuperAdmin";
 import BotonMenuFlotante from "@/components/global/BotonMenuFlotante";
@@ -11,7 +11,7 @@ export default function PlantillaSuperAdmin({ children }) {
   /** Desectructuramos las props **/
   const {
     PropsActualizacion: { verModalNuevaVersion, versionSistemaWeb },
-  } = useSistema();
+  } = useSistemaContext();
 
   return (
     <main className="PlantillaSuperAdmin">

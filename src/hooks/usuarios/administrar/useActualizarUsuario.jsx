@@ -1,72 +1,81 @@
 /** Librerías **/
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+/** Iconos **/
+import { BuildingOfficeIcon, CursorClickIcon } from "@phosphor-icons/react";
 /** Contextos **/
 import { useUsuariosContext } from "@/context/UsuariosContext";
-/** Iconos **/
-import {
-  BuildingOfficeIcon,
-  CheckCircleIcon,
-  CursorClickIcon,
-} from "@phosphor-icons/react";
 /** Ayudas **/
 import { NotificacionesPersonalizadas } from "@/helpers/Notificaciones";
 /** Roles que no necesitan una COMPAÑIA **/
 const ROLES_CON_COMPANIA = [1, 2, 3];
 
-export default function useRegistrarUsuario({
+export default function useActualizarUsuario({
   rol_usuario,
-  onRecargarUsuarios,
+  usuario_editar,
+  onActualizarUsuarioLocal,
 }) {
   /** Contextos **/
-  const { ApiRegistrar } = useUsuariosContext();
+  const { ApiActualizarInformacion } = useUsuariosContext();
+
+  /** Estados **/
+  const [rolSeleccionado, establecerRolSeleccionado] = useState({
+    value: usuario_editar?.id_rol,
+    label: usuario_editar?.nombre_rol,
+  });
+  const [companiaSeleccionada, establecerCompaniaSeleccionada] = useState({
+    value: usuario_editar?.id_compania,
+    label: usuario_editar?.nombre_compania,
+    logo: usuario_editar?.logo_compania,
+  });
+  const [realizandoPeticion, establecerRealizandoPeticion] = useState(false);
 
   /** Form **/
   const {
     handleSubmit,
     register,
-    reset,
     formState: { errors },
   } = useForm({
     criteriaMode: "all",
+    defaultValues: {
+      usuario: usuario_editar?.nombre_usuario,
+      correo: usuario_editar?.correo_usuario,
+    },
   });
 
-  /** Estados **/
-  const [verContrasena, establecerVerContrasena] = useState(false);
-  const [rolSeleccionado, establecerRolSeleccionado] = useState(null);
-  const [realizandoPeticion, establecerRealizandoPeticion] = useState(false);
-  const [companiaSeleccionada, establecerCompaniaSeleccionada] = useState(null);
-
   /** Funciones para el formulario **/
-  const PeticionRegistrar = handleSubmit(async (data) => {
+  const PeticionActualizar = handleSubmit(async (data) => {
     /** Si ya estamos realizando una petición, no hacemos nada **/
     if (realizandoPeticion) return;
 
     /** Validamos el formulario **/
     const ES_VALIDO =
       rol_usuario === "SA04"
-        ? ValidarRegistroSuperAdmin()
-        : ValidarRegistroAdmin();
+        ? ValidarActualizacionSuperAdmin()
+        : ValidarActualizacionAdmin();
     if (!ES_VALIDO) return;
 
     /** Realizamos la petición **/
     establecerRealizandoPeticion(true);
     try {
-      const res = await ApiRegistrar({
+      const res = await ApiActualizarInformacion({
         ...data,
+        id_usuario_actualizar: usuario_editar.id_usuario,
         id_rol: rolSeleccionado.value,
         id_compania: companiaSeleccionada?.value ?? undefined,
       });
-
       if (res.exito) {
-        NotificacionesPersonalizadas({
-          Tipo: "Exito",
-          Icono: CheckCircleIcon,
-          Titulo: "¡Usuario registrado!",
-          Mensaje: "El usuario ha sido registrado correctamente.",
+        onActualizarUsuarioLocal({
+          id_usuario: usuario_editar.id_usuario,
+          nombre_usuario: data.usuario,
+          correo_usuario: data.correo,
+          activo_usuario: usuario_editar.activo_usuario,
+          id_rol: rolSeleccionado.value,
+          nombre_rol: rolSeleccionado.label,
+          id_compania: companiaSeleccionada.value ?? null,
+          nombre_compania: companiaSeleccionada.label ?? null,
+          logo_compania: companiaSeleccionada.logo ?? null,
         });
-        LimpiarFormulario();
-        onRecargarUsuarios();
       }
     } catch (error) {
       console.error("Error inesperado: ", error);
@@ -74,7 +83,7 @@ export default function useRegistrarUsuario({
       establecerRealizandoPeticion(false);
     }
   });
-  function ValidarRegistroAdmin() {
+  function ValidarActualizacionAdmin() {
     if (!rolSeleccionado) {
       NotificacionesPersonalizadas({
         Tipo: "Info",
@@ -86,7 +95,7 @@ export default function useRegistrarUsuario({
     }
     return true;
   }
-  function ValidarRegistroSuperAdmin() {
+  function ValidarActualizacionSuperAdmin() {
     if (!rolSeleccionado) {
       NotificacionesPersonalizadas({
         Tipo: "Info",
@@ -110,22 +119,8 @@ export default function useRegistrarUsuario({
     }
     return true;
   }
-  function ManejarMostrarContrasena() {
-    establecerVerContrasena(!verContrasena);
-    const InputContrasena = document.getElementById("contrasena");
-    InputContrasena.type = verContrasena ? "text" : "password";
-  }
-  function LimpiarFormulario() {
-    reset();
-    establecerRolSeleccionado(null);
-    establecerCompaniaSeleccionada(null);
-  }
 
   return {
-    PropsContrasena: {
-      verContrasena,
-      ManejarMostrarContrasena,
-    },
     PropsForm: {
       errors,
       register,
@@ -137,7 +132,7 @@ export default function useRegistrarUsuario({
       establecerCompaniaSeleccionada,
     },
     PropsPeticiones: {
-      PeticionRegistrar,
+      PeticionActualizar,
       realizandoPeticion,
     },
   };

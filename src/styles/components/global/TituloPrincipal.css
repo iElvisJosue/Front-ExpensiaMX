@@ -1,0 +1,7 @@
+.TituloPrincipal{
+  font-size: var(--TextoTitulo);
+  font-weight: var(--Bold);
+  color: var(--ColorPrincipal);
+  text-transform: uppercase;
+  text-align: center;
+}

@@ -7,7 +7,13 @@
   grid-template-columns: auto 1fr;
   gap: 10px;
 }
-@media(width <= 768px) {
+@media (width >= 1920px) {
+  .PlantillaAdministrador {
+    width: 1920px;
+    margin: 0 auto;
+  }
+}
+@media (width <= 768px) {
   .PlantillaAdministrador {
     gap: 0;
   }

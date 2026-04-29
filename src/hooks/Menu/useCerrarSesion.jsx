@@ -3,13 +3,13 @@ import { sileo } from "sileo";
 import Cookies from "js-cookie";
 import { useState } from "react";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 
 export default function useCerrarSesion() {
   /** Peticiones **/
   const {
     PropsPeticiones: { CerrarSesion },
-  } = useSistema();
+  } = useSistemaContext();
   /** Estados **/
   const [realizandoPeticion, establecerRealizandoPeticion] = useState(false);
 

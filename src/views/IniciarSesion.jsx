@@ -42,8 +42,8 @@ export default function IniciarSesion() {
         <InputTextLogin
           Label="Usuario"
           IconoIzquierda={UserIcon}
-          NombreCampo="Usuario"
-          register={register("Usuario", {
+          NombreCampo="usuario"
+          register={register("usuario", {
             required: MENSAJES_DE_VALIDACION.REQUERIDO,
             maxLength: {
               value: 255,
@@ -57,9 +57,9 @@ export default function IniciarSesion() {
           IconoIzquierda={PasswordIcon}
           IconoDerecha={verContrasena ? EyeSlashIcon : EyeIcon}
           onDerecha={ManejarMostrarContrasena}
-          NombreCampo="Contrasena"
+          NombreCampo="contrasena"
           TipoCampo={verContrasena ? "text" : "password"}
-          register={register("Contrasena", {
+          register={register("contrasena", {
             required: MENSAJES_DE_VALIDACION.REQUERIDO,
           })}
           errors={errors}

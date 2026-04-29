@@ -1,14 +1,14 @@
 /** Librerias **/
 import { Navigate, Outlet } from "react-router-dom";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 /** Componentes **/
 import Cargando from "@/components/global/Cargando";
 
 export default function SeguridadToken() {
   const {
     PropsToken: { tieneToken, validandoToken },
-  } = useSistema();
+  } = useSistemaContext();
 
   /** Si estamos validando el token, mostramos el loader **/
   if (validandoToken) return <Cargando />;

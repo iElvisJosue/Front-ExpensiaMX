@@ -7,7 +7,7 @@
 
   z-index: var(--Modal);
 }
-.ModalFormularios__Formulario {
+.ModalFormularios__Contenedor {
   position: relative;
   margin-left: auto;
   padding: 15px;
@@ -26,7 +26,6 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 10px;
 }
 @keyframes AnimacionForms {
@@ -35,18 +34,14 @@
     opacity: 1;
   }
 }
-.ModalFormularios__Formulario__Contenido {
-  margin-bottom: auto;
-  overflow: auto;
-}
-.ModalFormularios__Contenido--Encabezado {
+.ModalFormularios__Contenedor--Encabezado {
   grid-column: 1 / -1;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.ModalFormularios__Contenido--Encabezado button {
+.ModalFormularios__Contenedor--Encabezado button {
   background-color: transparent;
   border: none;
   color: var(--ColorGrisOscuro);
@@ -55,29 +50,8 @@
   display: grid;
   place-items: center;
 }
-.ModalFormularios__Contenido--Boton {
-  width: fit-content;
-  padding: 10px;
-  border-radius: 50px;
-  margin-left: auto;
-  font-size: var(--Texto12);
-  color: var(--ColorBlanco);
-  background-color: var(--ColorNegro);
-  border: 2px solid var(--ColorNegro);
-  transition: var(--Transicion);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-.ModalFormularios__Contenido--Boton:hover {
-  cursor: pointer;
-  background-color: var(--ColorBlanco);
-  color: var(--ColorNegro);
-}
 @media (width <= 500px) {
-  .ModalFormularios__Formulario {
+  .ModalFormularios__Contenedor {
     width: 100%;
   }
 }

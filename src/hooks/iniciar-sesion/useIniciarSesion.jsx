@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 import { useUsuariosContext } from "@/context/UsuariosContext";
 /** Ayudas **/
 import { NotificacionesPersonalizadas } from "@/helpers/Notificaciones";
@@ -20,7 +20,7 @@ export default function useIniciarSesion() {
   /** Desestructuramos las props **/
   const {
     PropsToken: { tieneToken },
-  } = useSistema();
+  } = useSistemaContext();
   const {
     handleSubmit,
     register,
@@ -88,7 +88,7 @@ export default function useIniciarSesion() {
   };
   const ManejarMostrarContrasena = () => {
     establecerVerContrasena(!verContrasena);
-    const InputContrasena = document.getElementById("ContrasenaUsuario");
+    const InputContrasena = document.getElementById("contrasena");
     InputContrasena.type = verContrasena ? "text" : "password";
   };
 

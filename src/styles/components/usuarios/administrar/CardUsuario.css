@@ -1,0 +1,184 @@
+.CardUsuario {
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--ColorBlanco);
+
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+.CardUsuario__Opciones {
+  position: relative;
+  height: 25px;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.CardUsuario__Opciones--Lista {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  padding: 5px;
+  background-color: var(--ColorGrisClaro);
+  border-radius: 10px;
+  transition: var(--Transicion);
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top right;
+
+  display: flex;
+  flex-direction: column;
+}
+.CardUsuario__Opciones--Lista.Mostrar {
+  opacity: 1;
+  transform: scale(1);
+}
+.CardUsuario__Opciones--Lista--Item {
+  padding: 5px;
+  border-radius: 7.5px;
+  font-size: var(--Texto14);
+  color: var(--ColorGrisOscuro);
+  transition: var(--Transicion);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.CardUsuario__Opciones--Lista--Item:hover {
+  cursor: pointer;
+  color: var(--ColorGrisClaro);
+  background-color: var(--ColorGrisOscuro);
+}
+.CardUsuario__Opciones--ActivarDesactivar {
+  position: relative;
+  height: 25px;
+  width: 40px;
+  border: none;
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: var(--Bold);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.CardUsuario__Opciones--ActivarDesactivar::after {
+  position: absolute;
+  content: "";
+  top: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: var(--ColorBlanco);
+  transition: 0.3s ease-in-out all;
+}
+.CardUsuario.Activo .CardUsuario__Opciones--ActivarDesactivar {
+  background-color: var(--ColorVerde);
+  color: var(--ColorBlanco);
+}
+.CardUsuario.Activo .CardUsuario__Opciones--ActivarDesactivar::after {
+  transform: translateX(-2.5px);
+}
+.CardUsuario.Desactivado .CardUsuario__Opciones--ActivarDesactivar {
+  background-color: var(--ColorRojo);
+  color: var(--ColorBlanco);
+}
+.CardUsuario.Desactivado .CardUsuario__Opciones--ActivarDesactivar::after {
+  transform: translateX(-17.5px);
+}
+.CardUsuario__Opciones--Ver {
+  border: none;
+  background-color: transparent;
+  color: var(--ColorGrisOscuro);
+  transition: var(--Transicion);
+
+  display: grid;
+  place-items: center;
+}
+.CardUsuario__Opciones--Ver:hover {
+  cursor: pointer;
+  color: var(--ColorPrincipal);
+}
+.CardUsuario__Logo {
+  width: 85px;
+  height: 85px;
+  padding: 2.5px;
+  border-radius: 50%;
+  background-color: var(--ColorGrisClaro);
+
+  display: grid;
+  place-items: center;
+}
+.CardUsuario__Logo img {
+  width: 100%;
+  height: 100%;
+  background-color: var(--ColorBlanco);
+  border-radius: 50%;
+  object-fit: contain;
+}
+.CardUsuario__Personal {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.CardUsuario__Personal b {
+  font-size: var(--Texto14);
+  color: var(--ColorNegro);
+  font-weight: var(--Bold);
+  text-align: center;
+
+  word-break: break-all;
+}
+.CardUsuario__Personal p {
+  width: fit-content;
+  padding: 1px 10px;
+  border-radius: 5px;
+  color: var(--ColorBlanco);
+  font-size: var(--Texto10);
+  text-align: center;
+  word-break: break-all;
+  transition: var(--Transicion);
+}
+.CardUsuario.Activo .CardUsuario__Personal p{
+  background-color:  var(--ColorVerde);
+}
+.CardUsuario.Desactivado .CardUsuario__Personal p{
+  background-color:  var(--ColorRojo);
+}
+.CardUsuario__Personal small {
+  font-size: var(--Texto12);
+  color: var(--ColorGrisOscuro);
+  text-align: center;
+
+  word-break: break-all;
+}
+.CardUsuario__Empresa {
+  width: 100%;
+  border-radius: 10px;
+  min-height: 40px;
+  padding: 5px 10px;
+  font-size: var(--Texto12);
+  color: var(--ColorGrisOscuro);
+  background-color: var(--ColorGrisClaro);
+  word-break: break-all;
+  text-align: center;
+
+  display: grid;
+  place-items: center;
+}
+.CardUsuario__Rol {
+  font-size: var(--Texto10);
+  color: var(--ColorGrisOscuro);
+  word-break: break-all;
+  text-align: center;
+}
+@media (width <= 600px) {
+  .CardUsuario__Logo {
+    width: 70px;
+    height: 70px;
+  }
+}

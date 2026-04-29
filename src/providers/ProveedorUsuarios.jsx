@@ -1,15 +1,16 @@
 /** Servicios API **/
 import * as PvUsuarios from "../api/authUsuarios";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 import { UsuariosContext } from "@/context/UsuariosContext";
 /** Ayudas **/
+import { NotificacionesRespuesta } from "@/helpers/Notificaciones";
 import { ManejarErrorRespuesta } from "@/helpers/ManejarErrorRespuesta";
 
 export const ProveedorUsuarios = ({ children }) => {
   const {
     PropsUsuario: { EstablecerInformacionObtenida },
-  } = useSistema();
+  } = useSistemaContext();
 
   const ApiIniciarSesion = async (data) => {
     try {
@@ -44,6 +45,38 @@ export const ProveedorUsuarios = ({ children }) => {
       return ManejarErrorRespuesta(error);
     }
   };
+  const ApiObtenerTodos = async (data) => {
+    try {
+      const res = await PvUsuarios.ApiObtenerTodos(data);
+      return { exito: true, data: res.data };
+    } catch (error) {
+      return ManejarErrorRespuesta(error);
+    }
+  };
+  const ApiActualizarEstado = async (data) => {
+    try {
+      const res = await PvUsuarios.ApiActualizarEstado(data);
+      NotificacionesRespuesta({
+        Codigo: res.status,
+        Mensaje: res.data,
+      });
+      return { exito: true, data: res.data };
+    } catch (error) {
+      return ManejarErrorRespuesta(error);
+    }
+  };
+  const ApiActualizarInformacion = async (data) => {
+    try {
+      const res = await PvUsuarios.ApiActualizarInformacion(data);
+      NotificacionesRespuesta({
+        Codigo: res.status,
+        Mensaje: res.data,
+      });
+      return { exito: true, data: res.data };
+    } catch (error) {
+      return ManejarErrorRespuesta(error);
+    }
+  };
 
   return (
     <UsuariosContext.Provider
@@ -51,7 +84,10 @@ export const ProveedorUsuarios = ({ children }) => {
         ApiIniciarSesion,
         ApiObtenerCompanias,
         ApiObtenerRoles,
-        ApiRegistrar
+        ApiRegistrar,
+        ApiObtenerTodos,
+        ApiActualizarEstado,
+        ApiActualizarInformacion
       }}
     >
       {children}

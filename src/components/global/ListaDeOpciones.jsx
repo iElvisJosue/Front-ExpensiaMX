@@ -17,6 +17,7 @@ export default function ListaDeOpciones({ Botones = [] }) {
           type="text"
           className="ListaDeOpciones__Buscador--Input"
           placeholder="Buscar..."
+          name="Busqueda"
           // value={valorDelInput}
           // onChange={manejarValorDelInput}
         />

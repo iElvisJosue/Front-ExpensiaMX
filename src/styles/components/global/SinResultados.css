@@ -1,14 +1,11 @@
 .SinResultados {
-  height: calc(100dvh - 75px);
   grid-column: 1 / -1;
+  height: 100%;
 
   display: grid;
   place-items: center;
   place-content: center;
   gap: 10px;
-}
-.SinResultados.Ajustado {
-  height: 100dvh;
 }
 .SinResultados__Imagen {
   width: clamp(80px, 20vw, 100px);
@@ -19,4 +16,5 @@
   font-size: var(--Texto18);
   font-weight: var(--Bold);
   white-space: pre-line;
+  word-break: break-all;
 }

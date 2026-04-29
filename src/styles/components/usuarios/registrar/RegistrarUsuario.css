@@ -1,0 +1,51 @@
+.RegistrarUsuario {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.RegistrarUsuario__Contenido {
+  overflow: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+.RegistrarUsuario__Contenido--Titulo {
+  grid-column: 1 / -1;
+  width: 100%;
+  font-size: var(--Texto18);
+  font-weight: var(--Bold);
+  color: var(--ColorPrincipal);
+  text-transform: uppercase;
+  text-align: center;
+}
+.RegistrarUsuario__Boton {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: auto;
+  margin-left: auto;
+  font-size: var(--Texto12);
+  color: var(--ColorBlanco);
+  background-color: var(--ColorNegro);
+  border: 2px solid var(--ColorNegro);
+  transition: var(--Transicion);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.RegistrarUsuario__Boton:hover {
+  cursor: pointer;
+  background-color: var(--ColorBlanco);
+  color: var(--ColorNegro);
+}
+@media (width <= 1000px) {
+  .RegistrarUsuario {
+    width: 100%;
+  }
+}

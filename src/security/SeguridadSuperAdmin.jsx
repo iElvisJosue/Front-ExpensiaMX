@@ -1,7 +1,7 @@
 /** Librerias **/
 import { Navigate, Outlet } from "react-router-dom";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 /** Plantilla **/
 import PlantillaSuperAdmin from "@/layout/PlantillaSuperAdmin";
 /** Ayudas **/
@@ -9,7 +9,7 @@ import { ROLES_USUARIO } from "@/helpers/MagicStrings";
 
 export default function SeguridadSuperAdmin() {
   /** Obtenemos los permisos del usuario **/
-  const { PropsUsuario } = useSistema();
+  const { PropsUsuario } = useSistemaContext();
   const {
     datosUsuario: { rol_usuario, url_compania },
   } = PropsUsuario;

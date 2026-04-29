@@ -1,5 +1,5 @@
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 /** Componentes **/
 import MenuAdministrador from "@/components/menus/MenuAdministrador";
 import BotonMenuFlotante from "@/components/global/BotonMenuFlotante";
@@ -11,7 +11,7 @@ export default function PlantillaAdministrador({ children }) {
   /** Desectructuramos las props **/
   const {
     PropsActualizacion: { verModalNuevaVersion, versionSistemaWeb },
-  } = useSistema();
+  } = useSistemaContext();
 
   return (
     <main className="PlantillaAdministrador">
@@ -20,7 +20,7 @@ export default function PlantillaAdministrador({ children }) {
       )}
       {/* <BotonMenuFlotante /> */}
       <MenuAdministrador />
-      <section className="PlantillaAdministrador__Contenido">{children}</section>
+      {children}
     </main>
   );
 }

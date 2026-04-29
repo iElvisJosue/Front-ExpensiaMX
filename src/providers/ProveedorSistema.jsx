@@ -45,9 +45,9 @@ export const ProveedorSistema = ({ children }) => {
       const res = await PvSistema.SolicitudValidarToken();
       /** Si el token es valido, establecemos la información **/
       if (res.status === 200) {
-        const { version_web, ...datos_usuario } = res.data;
-        EstablecerInformacionObtenida(datos_usuario);
-        ValidarVersionDelSistema(version_web);
+        const { Datos_Usuario, Datos_Web } = res.data;
+        EstablecerInformacionObtenida(Datos_Usuario);
+        ValidarVersionDelSistema(Datos_Web);
       }
     } catch {
       NotificacionesPersonalizadas({

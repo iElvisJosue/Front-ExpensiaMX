@@ -18,7 +18,7 @@ import {
   UsersThreeIcon,
 } from "@phosphor-icons/react";
 /** Contextos **/
-import { useSistema } from "@/context/SistemaContext";
+import { useSistemaContext } from "@/context/SistemaContext";
 /** Hooks **/
 import useCerrarSesion from "@/hooks/menu/useCerrarSesion";
 /** Ayudas **/
@@ -34,7 +34,7 @@ export default function MenuSuperAdmin() {
   /** Desestructuramos las props **/
   const {
     PropsMenu: { verMenuCompleto, establecerVerMenuCompleto },
-  } = useSistema();
+  } = useSistemaContext();
 
   const ClaseMenu = verMenuCompleto
     ? "MenuSuperAdmin Completo"

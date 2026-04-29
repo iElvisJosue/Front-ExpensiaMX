@@ -1,0 +1,38 @@
+.RealizandoPeticion {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.RealizandoPeticion__Imagen {
+  width: clamp(80px, 20vw, 90px);
+  height: clamp(80px, 20vw, 90px);
+  background-color: var(--ColorSecundario);
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+}
+.RealizandoPeticion__Imagen img {
+  width: 80%;
+  height: 80%;
+}
+.RealizandoPeticion__Barra {
+  height: 8px;
+  width: clamp(80px, 20vw, 90px);
+  border-radius: 15px;
+  --c: no-repeat linear-gradient(var(--ColorPrincipal) 0 0);
+  background: var(--c), var(--c), var(--ColorSecundario);
+  background-size: 60% 100%;
+  animation: l16 3s infinite;
+}
+.RealizandoPeticion__Texto{
+  color: var(--ColorPrincipal);
+  text-align: center;
+  font-size: clamp(10px, 2.5vw, 12px);
+  font-weight: var(--Bold);
+}

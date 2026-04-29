@@ -1,5 +1,5 @@
 /** Iconos **/
-import { FolderIcon, UsersThreeIcon } from "@phosphor-icons/react";
+import { FolderIcon } from "@phosphor-icons/react";
 /** Ayudas **/
 import { MuyGrande } from "@/helpers/TamanoIcono";
 import { RUTAS_IMAGENES } from "@/helpers/RutasImagenes";

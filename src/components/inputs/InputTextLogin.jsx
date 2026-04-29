@@ -42,7 +42,7 @@ export default function InputTextLogin({
           className="InputTextLogin__Contenido--Input"
           {...register}
         />
-        <label htmlFor="CorreoUsuario" className="InputTextLogin__Contenido--Label">
+        <label htmlFor={NombreCampo} className="InputTextLogin__Contenido--Label">
           {Label}
         </label>
       </div>
